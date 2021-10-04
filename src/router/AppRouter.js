@@ -2,7 +2,8 @@ import React from 'react'
 import {
     BrowserRouter as Router,
     Switch,
-    Route
+    Route,
+    Redirect
   } from "react-router-dom";
 
 import {Navbar} from '../components/ui/Navbar'
@@ -14,8 +15,9 @@ export const AppRouter = () => {
         <Router>
             <Navbar />
             <Switch>
-                <Route exact path="/" component={HomeScreen} />
+                <Route exact path="/all" component={HomeScreen} />
                 <Route exact path="/country/:alpha3Code" component={CountryScreen} />
+                <Redirect to="/all" />
             </Switch>
         </Router>
     )
