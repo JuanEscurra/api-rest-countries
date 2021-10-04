@@ -19,8 +19,6 @@ export const CountryScreen = () => {
         history.push('/')
     }
 
-    console.log(country);
-
     return (
         <div className="main">
             <button onClick={goBack} className="btn">
