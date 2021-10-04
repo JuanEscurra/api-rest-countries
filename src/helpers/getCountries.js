@@ -1,7 +1,7 @@
 
 export const getCountries = async() => {
-    const countries = await fetch(`https://restcountries.eu/rest/v2/all?
-        fields=alpha3Code;name;population;region;capital;flag`);
+    const countries = await fetch(`https://restcountries.com/v3.1/all?
+        fields=cca3;name;population;region;capital;flag`);
     const jsonCountries = await countries.json();
     if(jsonCountries.status === 404) {
         return [];
@@ -10,7 +10,7 @@ export const getCountries = async() => {
 }
 
 export const getCountriesByName = async(name) => {
-    const countries = await fetch(`https://restcountries.eu/rest/v2/name/${name}?
+    const countries = await fetch(`https://restcountries.com/v3.1/name/${name}?
         fields=alpha3Code;name;population;region;capital;flag`);
     const jsonCountries = await countries.json();
     if(jsonCountries.status === 404) {
@@ -20,7 +20,7 @@ export const getCountriesByName = async(name) => {
 }
 
 export const getCountriesByRegion = async(region) => {
-    const countries = await fetch(`https://restcountries.eu/rest/v2/region/${region}?
+    const countries = await fetch(`https://restcountries.com/v3.1/region/${region}?
         fields=alpha3Code;name;population;region;capital;flag`);
     const jsonCountries = await countries.json();
     if(jsonCountries.status === 404) {
@@ -30,7 +30,7 @@ export const getCountriesByRegion = async(region) => {
 }
 
 export const getCountriesByCode = async(code) => {
-    const countries = await fetch(`https://restcountries.eu/rest/v2/alpha/${code}`);
+    const countries = await fetch(`https://restcountries.com/v3.1/alpha/${code}`);
     const jsonCountries = await countries.json();
     if(jsonCountries.status === 404) {
         return [];

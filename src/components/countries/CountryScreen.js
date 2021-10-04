@@ -19,7 +19,7 @@ export const CountryScreen = () => {
         history.push('/')
     }
 
-    //console.log((country.borders).length);
+    console.log(country);
 
     return (
         <div className="main">
@@ -28,14 +28,14 @@ export const CountryScreen = () => {
             </button>
             <div className="details">
                 {!loading || 'cargando'}
-                <img
-                    className="details__img"
-                    src={country.flag} alt={country.name} loading="lazy" />
+                    <img
+                        className="details__img"
+                        src={country.flags?.png} alt={"imagen"} loading="lazy" />
                 <div className="details__main">
-                    <h3>{country.name}</h3>
+                    <h3>{country.name?.common}</h3>
                     <div className="details__content">
                         <div className="details__primary">
-                            <p>Native Name: <span>{country.nativeName}</span></p>
+                            <p>Native Name: <span>{country.name?.official}</span></p>
                             <p>Population: <span>{country.population}</span></p>
                             <p>Region: <span>{country.region}</span></p>
                             <p>Sub Region: <span>{country.subregion}</span></p>
@@ -43,27 +43,18 @@ export const CountryScreen = () => {
 
                         </div>
                         <div className="details__secondary">
-                            <p>Top Level Domain: 
-                                <span>
-                                    {country.topLevelDomain?.map(domain => (
-                                        domain
-                                    ))}
-                                </span>
-                            </p>
                             <p>
                                 Currencies: 
                                 <span>
-                                    {country.currencies?.map(currency => (
-                                        currency.name
-                                    ))}
+                                    {country.currencies != null
+                                        && Object.values(country?.currencies).map(currency => currency.name + ", ")}
                                 </span>
                             </p>
                             <p>
-                                Languages: 
+                                Languages:  
                                 <span>
-                                    {country.languages?.map(language => (
-                                        language.name + ', ' 
-                                    ))} 
+                                    {country.languages != null
+                                        && Object.values(country?.languages).map(language => language + ", ")}
                                 </span>
                             </p>
                         </div>

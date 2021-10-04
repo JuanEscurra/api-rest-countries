@@ -11,15 +11,15 @@ export const CountriesList = ({countries}) => {
             {
                 
                 countries?.map(country => (
-                    <CountryItem key={country.alpha3Code}
+                    <CountryItem key={country.cca3}
                         country={
                             {
-                                alpha3Code: country.alpha3Code,
-                                name: country.name,
+                                alpha3Code: country.cca3,
+                                name: country.name.common,
                                 population: country.population,
                                 region: country.region,
                                 capital: country.capital,
-                                img: country.flag
+                                img: country.flags.png
                             }
                         }
                     />

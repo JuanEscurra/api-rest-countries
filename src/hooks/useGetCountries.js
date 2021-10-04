@@ -43,7 +43,7 @@ export const useGetCountries = ({get,country}) => {
                 getCountriesByCode(country.alpha3Code)
                     .then(data => {
                         setState({
-                            countries: data,
+                            countries: data[0],
                             loading: false
                         });
                     })
